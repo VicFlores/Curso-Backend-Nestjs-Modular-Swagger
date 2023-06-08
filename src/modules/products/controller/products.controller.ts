@@ -6,14 +6,14 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  ParseIntPipe,
   Post,
   Put,
   /* Query, */
 } from '@nestjs/common';
 
-import { ProductsService } from 'src/services/products/products.service';
-import { ParseIntPipe } from '../../common/parse-int/parse-int.pipe';
-import { CreateProductDto, UpdateProductDto } from 'src/dto/products.dto';
+import { ProductsService } from 'src/modules/products/service/products.service';
+import { CreateProductDto, UpdateProductDto } from '../products.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -39,8 +39,6 @@ export class ProductsController {
       message: 'Accion crear',
       payload,
     }; */
-
-    console.log(payload);
 
     return this.productService.create(payload);
   }
